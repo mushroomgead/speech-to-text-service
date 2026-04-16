@@ -2,6 +2,26 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## First-time setup
+
+```bash
+# 1. Install Python 3.9+ (if not already installed)
+brew install python@3.9      # macOS
+
+# 2. Install ffmpeg (required by Whisper to decode audio)
+brew install ffmpeg           # macOS
+
+# 3. Create and activate virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Copy env file and adjust as needed
+cp .env.example .env
+```
+
 ## Running the service
 
 ```bash
@@ -15,6 +35,13 @@ docker run -p 3004:3004 -v /local/audio:/audio stt-service
 ```
 
 **Important:** Changes to `.env` require a manual restart — uvicorn `--reload` does not watch `.env`.
+
+## Running tests
+
+```bash
+source .venv/bin/activate
+pytest tests/ -v
+```
 
 ## Environment variables (`.env`)
 
