@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+openai-whisper
+torch
+pydantic-settings
+pytest
+pytest-mock
+httpx
